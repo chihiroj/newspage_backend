@@ -1,4 +1,4 @@
-package java.backend.newspage.newspage;
+package com.chihiro.newspage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
