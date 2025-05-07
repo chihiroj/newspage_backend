@@ -1,9 +1,6 @@
 package com.chihiro.newspage.article;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import com.chihiro.newspage.user.User;
@@ -18,6 +15,7 @@ public class Article {
 
     @Column
     private String title;
+    @Lob
     @Column
     private String contents;
     @Column

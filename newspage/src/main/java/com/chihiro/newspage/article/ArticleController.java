@@ -1,6 +1,7 @@
 package com.chihiro.newspage.article;
 
 import com.chihiro.newspage.user.User;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ArticleController {
     private final UserService userService;
 
     @PostMapping("")
-    public ResponseEntity<?> addArticle(@ModelAttribute ArticleDTO articleDTO){
+    public ResponseEntity<?> addArticle(@RequestBody @Valid ArticleDTO articleDTO){
         User user = userService.getUserByEmail(articleDTO.getEmail(), articleDTO.getName());
         articleService.addArticle(articleDTO, user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
