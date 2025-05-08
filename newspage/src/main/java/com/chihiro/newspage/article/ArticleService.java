@@ -43,4 +43,14 @@ public class ArticleService {
             articleRepository.deleteById(id);
         }
     }
+
+    public ResponseEntity<?> getArticleById(UUID id) {
+        Optional<Article> article = articleRepository.findById(id);
+
+        if (article.isEmpty()){
+            throw new RuntimeException("The article does not found");
+        }else{
+            return new ResponseEntity<>(article.get(),HttpStatus.OK);
+        }
+    }
 }

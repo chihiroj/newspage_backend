@@ -27,6 +27,10 @@ public class ArticleController {
     public ResponseEntity<?> getAllArticle(){
         return articleService.getAllArticle();
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getArticleById(@PathVariable UUID id){
+        return articleService.getArticleById(id);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteArticle(@PathVariable UUID id){
